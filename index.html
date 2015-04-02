@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Conjuntos</title>
+
+		<meta name="description" content="Sets">
+		<meta name="author" content="Javier Guaje">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/dark-blue.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                
+<section data-markdown>
+	# Conjuntos
+	#####Javier Guaje
+</section>
+<section data-markdown>
+	# Conceptos básicos
+</section>
+<section>
+	<section data-markdown>
+		## Conjunto
+	</section>
+
+	<section>
+		<h2>Conjunto: Definición</h2>
+
+		<p>
+			\(A = \{"Rojo", "Verde", "Azul"\}\)
+		</p>
+
+		<p class="fragment">
+			<b>Conjunto</b>: Colección bien definida de objetos.
+		</p>
+	</section>
+
+	<section>
+		<h2>Conjunto: Constructor</h2>
+
+		<p>
+			$$\phi_{Stark}(x) = \{x : x~\text{es un miembro de la familia Stark}\}$$
+		</p>
+
+		<p class="fragment">
+			<b>Contructor del conjunto</b>: Es el predicado que determina de manera exacta los objetos que <b>pertenecen</b> a un conjunto.
+		</p>
+
+		<ul>
+			<li class="fragment">El construcctor es particular para cada conjunto, es decir, existe un constructor para el conjunto \(A\), otro para el conjunto \(B\), etc.</li>
+			<li class="fragment">El constructor de un conjunto particular se nota de la siguiente manera: \(\phi_{NombreDelConjunto}\).</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Conjunto: Ejemplo</h2>
+
+		<p>
+			La colección \(A = \{1, 2, 3, 4\}\) es un conjunto, ya que el siguiente predicado determina de manera exacta los objetos que pertenecen a \(A\):
+		</p>
+
+		<p>
+			$$􏰄\phi_A(x) = \begin{cases} V, & \text{si $x = 1$, $x = 2$, $x = 3$ o $x = 4;$} \\ F, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Elemento
+	</section>
+
+	<section>
+		<h2>Elemento: Definición</h2>
+
+		<p>
+			<b>Elemento</b>: Es cualquier objeto para el cual el predicado del conjunto es verdadero.
+		</p>
+
+		<p class="fragment">
+			<b>e.g.</b> Sea el conjunto \(A\), se dice que <i>x es un elemento de A</i> si \(\phi_A(x) = V\). En el caso en que \(\phi_A(x) = F\), se dice que el objeto <i>x no es un elemento de A</i>.
+		</p>
+	</section>
+
+	<section>
+		<h2>Elemento: Ejemplo</h2>
+
+		<p>
+			Para el conjunto \(A = \{1, 2, 3, 4\}\), se tiene que <i>1 es elemento de A</i>, pues (\(\phi_A(1) = V\)), y <i>5 no es elemento de A</i>, pues (\(\phi_A(5) = F\)).
+		</p>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Pertenencia
+	</section>
+
+	<section>
+		<h2>Pertenencia: Definición</h2>
+
+		<p>
+			<b>Pertenencia</b>: Es un predicado que define la relación entre un elemento y un conjunto.
+		</p>
+
+		<p class="fragment">
+			Su notación es:
+			$$x \in A$$
+			donde \(x\) es un elemento y \(A\) es un conjunto.
+		</p>
+	</section>
+
+	<section>
+		<h2>Pertenencia: Definición</h2>
+
+		<p>
+			El predicado \(x \in A\) es usado para denotar que el elemento <i>x pertenece al conjunto A</i>, y el predicado \(x \notin A\) es usado para denotar que el elemento <i>x no pertenece al conjunto A </i>.
+		</p>
+
+		<p class="fragment">
+			Este último también se puede notar como \(\lnot􏰀\in(x, A)􏰁\)
+		</p>
+	</section>
+
+	<section>
+		<h2>Pertenencia: Relación con el Constructor</h2>
+
+		<p>
+			El predicado <b>pertenencia</b> posee la siguiente relación con el predicado <b>constructor de un conjunto</b>:
+			<br>
+			$$\in(x, A) \Leftrightarrow \phi_A(x)$$
+		</p>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Especificación
+	</section>
+
+	<section data-markdown>
+		## Especificación: Introducción
+
+		Gracias a las definiciones anteriores, un conjunto se puede especificar de dos maneras: por _extensión_ y por _comprensión_.
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Especificación: Extensión
+
+		Un conjunto se especifica por __extensión__ cuando:
+
+		- <!-- .element: class="fragment" -->
+		Se listan exhaustivamente los elementos que conforman el conjunto.
+		- <!-- .element: class="fragment" -->
+		Se puede determinar una secuencia que sirve para saber cual es el siguiente elemento del conjunto.
+		</script>
+	</section>
+
+	<section>
+		<h2>Especificación: Extensión</h2>
+
+		<p>
+			La notación general de un conjunto especificado por extensión es:
+			$$A = \{x_1, x_2, \dots ,x_n\}$$
+			donde \(x_i\) son los objetos en el conjunto \(A\).
+		</p>
+
+		<p class="fragment">
+			De esta manera el predicado asociado al conjunto es:
+			$$\phi_A(x) = \begin{cases} V, & \text{si $x = x_i$ para algún $i = 1, 2, \dots, n$;} \\ F, & \text{en otro caso.} \end{cases}$$
+		</p>
+	</section>
+
+	<section>
+		<h2>Extensión: Ejemplos</h2>
+
+		<ul>
+			<li>\(A = \{1, 2, 3, 4\}\)</li>
+			<li class="fragment">\(B = \{\color{blue}{\heartsuit}, \color{blue}{\diamondsuit}, \color{black}{\clubsuit}, \color{black}{\spadesuit}\}\)</li>
+			<li class="fragment">\(V = \{'a', 'e', 'i', 'o', 'u'\}\)</li>
+			<li class="fragment">\(\mathbb{B} = \{V, F\}\)</li>
+			<li class="fragment">\(\mathbb{N} = \{0, 1, 2, 3, 4, 5, \dots\}\)</li>
+			<li class="fragment">\(\mathbb{P} = \{1, 2, 3, 5, \dots\}\)</li>
+			<li class="fragment">\(\mathbb{Z} = \{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}\)</li>
+		</ul>
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Especificación: Comprensión
+
+		Un conjunto se especifica por __comprensión__ cuando:
+
+		- <!-- .element: class="fragment" -->
+		Se presenta explícitamente el predicado que define el conjunto.
+		</script>
+	</section>
+
+	<section>
+		<h2>Especificación: Comprensión</h2>
+
+		<p>
+			La notación general de un conjunto especificado por comprensión es:
+			$$A = 􏰂\{x : \phi_A(x)􏰃\}$$
+		</p>
+
+		<p class="fragment">
+			En esta notación, el símbolo “:” se lee “<i>tal que</i>”.
+		</p>
+	</section>
+
+	<section>
+		<h2>Compresión: Ejemplos</h2>
+
+		<ul>
+			<li>\(2\mathbb{N} = \{x : (x = 2n) \land (n \in \mathbb{N})\}\)</li>
+			<li class="fragment">\(\mathbb{Q} = \{x : (x = p / q) \land (p, q \in \mathbb{Z}) \land (q \neq 0)\}\)</li>
+			<li class="fragment">\(\mathbb{I} = \{x : x~\text{es un número irracional}\}\)</li>
+			<li class="fragment">\(\mathbb{R}^+ = \{x : (x \in \mathbb{R}) \land (x \gt 0)\}\)</li>
+			<li class="fragment">\(A = \{x : (x \in \mathbb{R}) \land (x^2 \le 1)\}\)</li>
+			<li class="fragment">\(B = \{x : x~\text{es una pinta del poker}\}\)</li>
+			<li class="fragment">\(V = \{x : x~\text{es una vocal}\}\)</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Conjunto vacío
+	</section>
+
+	<section>
+		<h2>Conjunto vacío: Definición</h2>
+
+		<p>
+			<b>Conjunto vacío</b>: Es el conjunto para el cual se cumple el predicado \(\phi_\emptyset(x) = \{x : (x \neq x)\}\). Es decir, que no tiene elemento alguno porque no existe objeto alguno que sea diferente de si mismo.
+		</p>
+
+		<ul>
+			<li class="fragment">El conjunto vacío se nota como \(\emptyset\) o \(\{ \}\).</li>
+			<li class="fragment">Para todo objeto \(x\) se tiene que \(\phi_\emptyset(x) = F\).</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Conjunto vacío: Consideraciones</h2>
+
+		<p>
+			Es importante tener en cuenta que \(\{ \} = \emptyset \neq \{\emptyset\}\), pues este último es el conjunto que tiene un único elemento que es el conjunto vacío, por lo tanto no es un conjunto vacío.
+		</p>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Diagrama de Venn
+	</section>
+
+	<section>
+		<h2>Diagrama de Venn: Representación</h2>
+
+		<p>
+			Todo conjunto finito no vacío se puede representar mediante los llamados diagramas de Venn.
+		</p>
+	</section>
+
+	<section>
+		<h2>Diagrama de Venn: Ejemplo</h2>
+
+		<p>
+			Sea el conjunto \(A = 􏰂\{2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A􏰃\}\), su representación mediante diagramas de Venn es la siguiente:
+		</p>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Contenencia
+	</section>
+
+	<section>
+		<h2>Contenencia: Definición</h2>
+
+		<p>
+			<b>Contenencia</b>: Es el predicado que evalua si los elementos de un conjunto están <b>contenidos</b> en otro conjunto.
+			Dados los conjuntos \(A\) y \(B\), la contenencia entre conjuntos se define de la siguiente manera:
+			<br>
+			$$contenido(A, B) \Leftrightarrow (x \in A \rightarrow x \in B)$$
+		</p>
+	</section>
+
+	<section>
+		<h2>Contenencia: Consideraciones</h2>
+
+		<ul>
+			<li>
+				<p>
+					Cuando un conjunto <i>A está contenido en un conjunto B</i>, se dice que \(A\) es <b>subconjunto</b> de \(B\)
+				</p>
+
+				<p class="fragment">
+					y que \(B\) es un <b>superconjunto</b> de \(A\).
+				</p>
+			</li>
+			<li>
+				<p class="fragment">
+					\(A \subseteq B\) es usado para notar el predicado \(contenido(A, B)\)
+				</p>
+
+				<p class="fragment">
+					y \(A \nsubseteq B\) es usado para denotar \(\lnot contenido(A, B)\).
+				</p>
+			</li>
+			<li>
+				<p class="fragment">
+					Para todo conjunto \(A\) se cumple que \(\emptyset \subseteq A\)
+				</p>
+
+				<p class="fragment">
+					y que \(A \subseteq A\).
+				</p>
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Contenencia: Ejemplo</h2>
+
+		<p>
+			Sean \(A\), \(B\) y \(C\) los siguientes conjuntos: \(A = \{'H', 'o', 'l', 'a'\}\), \(B = \{'m', 'u', 'n', 'd', 'o'\}\) y \(C = \{'H', 'o', 'l', 'a', '!'\}\), entonces:
+		</p>
+
+		<ul>
+			<li class="fragment">\(A \subseteq C\)</li>
+			<li class="fragment">\(B \nsubseteq C\)</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Igualdad
+	</section>
+
+	<section>
+		<h2>Igualdad: Definición</h2>
+
+		<p>
+			<b>Igualdad</b>: Es el predicado que evalua si los elementos de un conjunto son los <b>mismos</b> que los de otro conjunto.
+			Dados los conjuntos \(A\) y \(B\), la igualdad entre conjuntos se define de la siguiente manera:
+			<br>						
+			$$igual(A, B) \Leftrightarrow ((A \subseteq B) \land (B \subseteq A))$$
+		</p>
+	</section>
+
+	<section>
+		<h2>Igualdad: Consideraciones</h2>
+
+		<ul>
+			<li>
+				<p>
+					\(A = B\) es usado para notar el predicado \(igual(A, B)\)
+				</p>
+
+				<p class="fragment">
+					y \(A \neq B\) es usado para denotar \(\lnot(igual(A, B))\).
+				</p>
+			</li>
+			<li class="fragment"> \((A = B) \Leftrightarrow (\phi_A \Leftrightarrow \phi_B)\).</li>
+			<li>
+				<p class="fragment">
+					\(A \subsetneq B\) es usado para denotar que \(((A \subseteq B) \land (A \neq B))\)
+				</p>
+
+				<p class="fragment">
+					es decir, que <i>A está contenido estrictamente en B</i>.
+				</p>
+
+				<p class="fragment">
+					En esos casos se dice que \(A\) es un <b>subconjunto propio</b> de \(B\).
+				</p>
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Igualdad: Ejemplo</h2>
+
+		<p>
+			Sean \(A\), \(B\) y \(C\) los siguientes conjuntos: \(A = \{2, 4, 6, 8, 0\}\), \(B = \{0, 2, 4, 6, 8\}\) y \(C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\), entonces:
+		</p>
+
+		<ul>
+			<li>\(A \subseteq B\)</li>
+			<li>\(B \subseteq A\)</li>
+			<li class="fragment">por lo tanto, \(A = B\)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Igualdad: Ejemplo</h2>
+
+		<p>
+			Sean \(A\), \(B\) y \(C\) los siguientes conjuntos: \(A = \{2, 4, 6, 8, 0\}\), \(B = \{0, 2, 4, 6, 8\}\) y \(C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\), entonces:
+		</p>
+
+		<ul>
+			<li>\(A \subseteq C\)</li>
+			<li>\(C \nsubseteq A\)</li>
+			<li class="fragment">es decir, \(A \neq C\)</li>
+			<li class="fragment">de donde \(A \subsetneq C\) (\(A\) es un <b>subconjunto propio</b> de \(C\))</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section data-markdown>
+		## Conjunto universal
+	</section>
+
+	<section>
+		<h2>Conjunto universal: Definición</h2>
+
+		<p>
+			<b>Conjunto universal</b>: Es un conjunto que contiene varios conjuntos. Es decir, un conjunto \(U\) se dice un <b>universo</b> para los conjuntos \(A_1, A_2, \dots, A_n\) si y sólo si \((\forall i = 1, 2, \dots, n) (A_i \subseteq U)\).
+		</p>
+
+		<p class="fragment">
+			Los universos no son únicos, es decir, se pueden construir diferentes universos para una misma familia de conjuntos.
+		</p>
+	</section>
+
+	<section>
+		<h2>Conjunto universal: Ejemplo</h2>
+
+		<p>
+			Dados los conjuntos \(A = \{\lor, \land, \rightarrow, \leftrightarrow\}\), \(B = \{\lnot, \lor, \land, \rightarrow, \leftrightarrow, \Leftrightarrow, \Rightarrow\}\) y \(C = \{\lnot, \lor, \land, \rightarrow, \leftrightarrow, \Leftrightarrow, \Rightarrow, \forall, \exists\}\), se tiene que:
+		</p>
+
+		<ul>
+			<li class="fragment">\(B\) es un universo para \(A\)</li>
+			<li class="fragment">\(C\) es un universo para \(A\)</li>
+			<li class="fragment">\(C\) es un universo para \(B\)</li>
+			<li class="fragment">por lo tanto \(C\) es un universo para \(A\) y \(B\)</li>
+		</ul>
+	</section>
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: false,
+
+				// Display the page number of the current slide
+				slideNumber: true,
+
+				// Push each slide change to the browser history
+				history: true,
+
+				// Enable keyboard shortcuts for navigation
+				keyboard: true,
+
+				// Enable the slide overview mode
+				overview: true,
+
+				// Vertical centering of slides
+				center: true,
+
+				// Enables touch navigation on devices with touch input
+				touch: true,
+
+				// Loop the presentation
+				loop: false,
+
+				// Change the presentation direction to be RTL
+				rtl: false,
+
+				// Turns fragments on and off globally
+				fragments: true,
+
+				// Flags if the presentation is running in an embedded mode,
+				// i.e. contained within a limited portion of the screen
+				embedded: false,
+
+				// Flags if we should show a help overlay when the questionmark
+				// key is pressed
+				help: true,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 0,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: true,
+
+				// Enable slide navigation via mouse wheel
+				mouseWheel: false,
+
+				// Hides the address bar on mobile devices
+				hideAddressBar: true,
+
+				// Opens links in an iframe preview overlay
+				previewLinks: false,
+
+				// Transition style
+				transition: 'slide', // default/none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+				// Number of slides away from the current that are visible
+				viewDistance: 3,
+
+				// Parallax background image
+				parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+				// Parallax background size
+				parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+				// Optional reveal.js plugins
+				dependencies: [
+				// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+				// Interpret Markdown in <section> elements
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+				// Syntax highlight for <code> elements
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+				// Zoom in and out with Alt+click
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+
+				// Speaker notes
+				{ src: 'plugin/notes/notes.js', async: true },
+
+				// Remote control your reveal.js presentation using a touch device
+				{ src: 'plugin/remotes/remotes.js', async: true },
+
+				// MathJax
+				{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
